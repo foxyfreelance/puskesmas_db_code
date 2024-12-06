@@ -8,7 +8,7 @@ import { Accounts } from "../../utils";
 export default async function handler(req, res) {
   // Allow only POST requests
   try {
-    const header = createHeader(req, res, "POST")
+    const header = await createHeader(req, res, "POST")
     if (!header.isValid) return header.message
     res = header.res;
     const accessToken = await AuthVerificator(req, res)
@@ -25,7 +25,7 @@ export default async function handler(req, res) {
       if (itemData.id == params.id) {
         const body = GetBody(req, itemData);
         dataAll[i] = body;
-        result = body
+        result = JSON.parse(JSON.stringify(body))
         break;
       }
     }

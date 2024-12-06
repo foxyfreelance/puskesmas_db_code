@@ -9,7 +9,7 @@ import { AuthVerificator } from "@/utils/auth-verificator";
 
 export default async function handler(req, res) {
   try {
-    const header = createHeader(req, res, "POST")
+    const header = await createHeader(req, res, "POST")
     if (!header.isValid) {
       return header.message
     }
@@ -25,7 +25,7 @@ export default async function handler(req, res) {
     // await construction.setJSON(MODEL_KEY_NAME, []);
     //end experimental
     const dataCheck = await Accounts.GetData(construction, { email: body.email });
-    const dataAll = await Accounts.GetData(construction, {});
+    const dataAll = await Accounts.GetData(construction, { isUsePassword: true });
 
     if (!dataCheck) {
       dataAll.push(JSON.parse(JSON.stringify(body)))
