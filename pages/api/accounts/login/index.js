@@ -17,15 +17,14 @@ export default async function handler(req, res) {
 
     const construction = await GetStorage();
     const data = await Accounts.GetData(construction, { email: body.email, isUsePassword: true });
-    console.log(data);
 
     if (!data) {
       return ResponseGenerator({ data: null, isSuccess: false, message: "Email Belum Terdaftar" }, res)
     }
 
-    // if (data?.password !== body.password) {
-    //   return ResponseGenerator({ data: null, isSuccess: false, message: "Email dan Password tidak terdaftar" }, res)
-    // }
+    if (data?.password !== body.password) {
+      return ResponseGenerator({ data: null, isSuccess: false, message: "Email dan Password tidak terdaftar" }, res)
+    }
 
     delete data.password
     const token = await GenerateAuthToken({ ...data })

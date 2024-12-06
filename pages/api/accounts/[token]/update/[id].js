@@ -17,7 +17,7 @@ export default async function handler(req, res) {
     const params = AccountsParams(req);
 
     const construction = await GetStorage();
-    const dataAll = await Accounts.GetData(construction, {});
+    const dataAll = await Accounts.GetData(construction, { isUsePassword: true });
 
     let result = {}
     for (let i = 0; i < dataAll.length; i++) {
