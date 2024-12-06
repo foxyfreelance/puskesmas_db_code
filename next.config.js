@@ -14,6 +14,31 @@ module.exports = {
     ];
   },
   reactStrictMode: true,
+  async headers() {
+    return [
+      {
+        source: '/api/:path*',  // Apply for your API route
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-store, no-cache, must-revalidate, proxy-revalidate',
+          },
+          {
+            key: 'Expires',
+            value: '0',
+          },
+          {
+            key: 'Pragma',
+            value: 'no-cache',
+          },
+          {
+            key: 'Surrogate-Control',
+            value: 'no-store',
+          },
+        ],
+      },
+    ];
+  },
   // Optional custom configuration(e.g., redirects or headers)
   // async headers() {
   //   return [
