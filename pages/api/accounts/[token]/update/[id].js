@@ -31,6 +31,7 @@ export default async function handler(req, res) {
     }
 
     await construction.setJSON(MODEL_KEY_NAME, dataAll);
+
     delete result.password
     return ResponseGenerator({ data: result, isSuccess: true }, res)
 

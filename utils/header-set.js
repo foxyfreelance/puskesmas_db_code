@@ -6,7 +6,10 @@ export const createHeader = (req, res, method = "POST") => {
   res.setHeader('Access-Control-Allow-Headers', '*'); // Allow all headers
   res.setHeader('Access-Control-Allow-Origin', '*'); // Allow any origin (use specific origin for better security)
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE'); // Allow necessary methods
-
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.setHeader('Expires', '0');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Surrogate-Control', 'no-store');
 
   // If method is not allowed, return 405
   if (req.method !== method) {
