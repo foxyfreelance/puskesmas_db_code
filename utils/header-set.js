@@ -7,14 +7,6 @@ export const createHeader = (req, res, method = "POST") => {
   res.setHeader('Access-Control-Allow-Origin', '*'); // Allow any origin (use specific origin for better security)
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE'); // Allow necessary methods
 
-  // Handle preflight request (OPTIONS)
-  if (req.method === 'OPTIONS') {
-    res.status(200).end(); // Return 200 OK for preflight request
-    return {
-      isValid: false,
-      res
-    };
-  }
 
   // If method is not allowed, return 405
   if (req.method !== method) {
