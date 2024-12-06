@@ -7,31 +7,6 @@ module.exports = {
         destination: '/api/:path*', // Handle API routes natively
       },
       {
-        source: '/login/:path*',
-        destination: '/index.html', // This serves React app for non-API routes
-      },
-      {
-        source: '/users/:path*',
-        destination: '/index.html', // This serves React app for non-API routes
-      },
-      {
-        source: '/users',
-        destination: '/index.html', // This serves React app for non-API routes
-      },
-      {
-        source: '/edit/:path*',
-        destination: '/index.html', // This serves React app for non-API routes
-      },
-
-      {
-        source: '/info',
-        destination: '/index.html', // This serves React app for non-API routes
-      },
-      {
-        source: '/404',
-        destination: '/index.html', // This serves React app for non-API routes
-      },
-      {
         source: '/:path*',
         destination: '/index.html', // This serves React app for non-API routes
       },
