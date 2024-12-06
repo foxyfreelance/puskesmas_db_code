@@ -43,6 +43,15 @@ module.exports = {
   async headers() {
     return [
       {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'no-store',
+          },
+        ],
+      },
+      {
         source: '/api/:path*',
         headers: [
           { key: 'Cache-Control', value: 'no-store' }

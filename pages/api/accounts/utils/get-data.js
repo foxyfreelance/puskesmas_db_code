@@ -70,8 +70,8 @@ export const SearchData = async (data, params) => {
     let results = null;
     if (query.value) {
       if (Array.isArray(query.value)) {
-        const unsortedData = filteringByMultipleParams(query.value, arrQuery)
-        const sortedData = unsortedData.sort((a, b) => new Date(b.dateCreate) - new Date(a.dateCreate))
+        const unsortedData = await filteringByMultipleParams(query.value, arrQuery)
+        const sortedData = await unsortedData.sort((a, b) => new Date(b.dateCreate) - new Date(a.dateCreate))
         if (!params.skipPagination) {
           results = Pagination(sortedData, params.page);
         }
