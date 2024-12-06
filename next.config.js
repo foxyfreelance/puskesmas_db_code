@@ -3,10 +3,6 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
-        destination: '/api/:path*', // Handle API routes natively
-      },
-      {
         source: '/:path*',
         destination: '/index.html', // This serves React app for non-API routes
       },
