@@ -1,9 +1,0 @@
-[[headers]]
-  for = "/static/*"
-  [headers.values]
-    Cache-Control = "no-store, no-cache, must-revalidate, proxy-revalidate"
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Cache-Control = "no-store, no-cache, must-revalidate, proxy-revalidate"
